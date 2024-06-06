@@ -1,0 +1,4 @@
+Create an array of numbers containing at least 5 elements.
+Find and output the largest number in the array.
+Calculate and output the sum of all numbers in the array.
+Determine and output the average of all numbers in the array.
