@@ -1,3 +1,4 @@
+"use strict";
 // // 1. Write a ts program to read and print elements of array.
 // var sports: string[] = [`Cricket`, `Soccer`, `Badminton`, `Hockey`];
 // for (let i = 0; i < sports.length; i++) {
@@ -18,6 +19,7 @@
 // }
 // console.log(`Total sum of array :`, sumOfArray);
 // // 4. Write a ts program to find maximum and minimum element in an array.
+Object.defineProperty(exports, "__esModule", { value: true });
 // var myArray: number[] = [5, 3, -9, 100, 7];
 // var max: number = myArray[0];
 // var min: number = myArray[0];
@@ -84,141 +86,173 @@
 //   break;
 // }
 // // 10. Write a ts program to delete an element from an array at specified position.
-// var remove: number[] = [1, 2, 3, 4, 5];
-// var indextoremove: any = prompt(
-//   `Enter a index of word in array which you want to remove`
-// );
-// for (let i = 0; i < remove.length; i++) {
-//   if (i === indextoremove) {
-//   }
-//   if (i > indextoremove) {
-//     remove[i - 1] = remove[i];
-//   }
-// }
-// if (indextoremove < 0 || indextoremove >= remove.length) {
-//   console.error("Invalid position: Out of range");
-// } else {
-//   remove.length = remove.length - 1;
-//   console.log("Result array:", remove);
-// }
-// 16. Write a ts program to find reverse of an array.
-// var reverse: string[] = [`suzuki`, `changan`, `toyota`];
-// console.log(`Original Array:`, reverse);
-// console.log(`Reversed Array:`, reverse.reverse());
-// 19. Write a ts program to sort array elements in ascending or descending order.
-// var sorting: string[] = [`suzuki`, `changan`, `toyota`];
-// var sort: string[] = sorting.sort();
-// console.log(`Original Array:`, sorting);
-// console.log(`sorted  Array in ascending order:`, sorting.sort());
-// console.log(`sorted  Array in descending order:`, sort.reverse());
-// 20. Write a ts program to sort even and odd elements of array separately.
-// var odd: number[] = [1, 13, 7, 5, 9, 17];
-// var even: number[] = [2, 16, 74, 58, 96, 170];
-// console.log(`Original odd array ${odd}`);
-// console.log(
-//   `This is an sorted odd array: ${odd.sort(function (a, b) {
-//     return a - b;
-//   })}`
-// );
-// console.log(`Original even array ${even}`);
-// console.log(
-//   `This is an sorted even array: ${even.sort(function (a, b) {
-//     return a - b;
-//   })}`
-// );
-// 17. Write a ts program to put even and odd elements of array in two separate array.
-// var odd = [1, 9, 392, 3812, 329, 1123, 58, 6];
-// var oddArray = [];
-// var evenArray = [];
-// for (var i = 0; i < odd.length; i++) {
-//   if (odd[i] % 2 == 0) {
-//     evenArray.push(odd[i]);
-//   }
-//   if (odd[i] % 2 !== 0) {
-//     oddArray.push(odd[i]);
-//   }
-// }
-// console.log(`this is an even Array ${evenArray}`);
-// console.log(`this is an odd Array ${oddArray}`);
-// 18. Write a ts program to search an element in an array.
-// var search = [10, 20, 30, 40, 50];
-// var searchElementValue = 300;
-// var index = -1;
-// if (search.indexOf(searchElementValue) !== index) {
-//   console.log(
-//     `the word ${searchElementValue} found on index no ${search.indexOf(
-//       searchElementValue
-//     )}`
-//   );
-// } else {
-//   console.log(`the word ${searchElementValue} is not found `);
-// }
-// 15. Write a ts program to merge two array to third array.
-// var bike: string[] = [`suzuki`, `honda`, `road prince`];
-// var car: string[] = [`mercedes`, `toyota`, `changan`];
-// var bikeAndcar: string[] = bike.concat(car);
-// console.log(`first array ${bike}`);
-// console.log(`merging of two array to third:${bikeAndcar}`);
-// 11. Write a ts program to count frequency of each element in an array.
-// var a: number[] = [1, 3, 2, 1, 3, 2, 1, 3, 18, 30];
-// for (let i = 0; i < a.length; i++) {
-//   var b: number = 1;
-//   for (let j = i + 1; j < a.length; j++) {
-//     if (a[i] == a[j]) {
-//       b++;
-//       a.splice(j, 1);
-//     }
-//   }
-//   console.log(`${a[i]} occurs ${b} time(s) in array`);
-// }
+let arr = ["a", "b", "c", "d", "e", "f"];
+let indextoremove = 2;
+if (indextoremove < 0 || indextoremove >= arr.length) {
+    console.error("Invalid position: Out of range");
+}
+else {
+    arr.splice(indextoremove, 1);
+    console.log("Result array:", arr);
+}
+var frequency = ["a", "b", "c", "d", "e", "f", "f", "a"];
+let countofEachElem = {};
+for (let i = 0; i < frequency.length; i++) {
+    var count = 0;
+    for (let j = 0; j < frequency.length; j++) {
+        if (frequency[i] == frequency[j]) {
+            count++;
+        }
+    }
+    countofEachElem[frequency[i]] = count;
+}
+console.log(countofEachElem);
 // 12. Write a ts program to print all unique elements in the array.
-// var array: number[] = [1, 2, 3, 4, 5, 2, 3, 6, 7, 8, 9, 19];
-// for (let i = 0; i < array.length; i++) {
-//   var isUnique = true;
-//   for (let j = 0; j < array.length; j++) {
-//     if (i !== j && array[i] === array[j]) {
-//       isUnique = false;
-//       break;
-//     }
-//   }
-//   if (isUnique) {
-//     console.log(array[i]);
-//   }
-// }
+let elems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 10, 10, 11, 11, 12, 12];
+let unique = [];
+for (let i = 0; i < elems.length; i++) {
+    if (unique.indexOf(elems[i]) === -1) {
+        unique.push(elems[i]);
+    }
+}
+console.log("unique items: ", unique);
 // 13. Write a ts program to count total number of duplicate elements in an array.
-// var duplicateArray: number[] = [1, 1, 8, 9, 8, 9];
-// var duplicates: number[] = [];
-// var duplicatecount: number = 0;
-// for (let i = 0; i < duplicateArray.length; i++) {
-//   for (let j = i + 1; j < duplicateArray.length; j++) {
-//     if (duplicateArray[i] == duplicateArray[j]) {
-//       duplicatecount++;
-//       duplicates.push(duplicateArray[i]);
-//     }
-//   }
-// }
-// console.log("Duplicate elements:", duplicatecount);
+let duplicates = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 8];
+let duplicateCount = 0;
+for (let i = 0; i < duplicates.length; i++) {
+    for (let j = i + 1; j < duplicates.length; j++) {
+        if (duplicates[i] == duplicates[j]) {
+            duplicateCount++;
+        }
+    }
+}
+console.log(`duplicates count: ${duplicateCount}`);
 // 14. Write a ts program to delete all duplicate elements from an array.
-// var originalArray = [1, 2, 3, 4, 2, 3, 5, 6, 1, 6, 9, 8];
-// console.log(`OriginalArray:` ,originalArray);
-// for (var i = 0; i < originalArray.length; i++) {
-//   for (let j = 0; j < i; j++) {
-//     if (originalArray[i] === originalArray[j]) {
-//       originalArray.splice(i, 1);
-//     }
-//   }
-// }
-// console.log("Array after removing duplicate elements:", originalArray);
+let arr1 = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 8];
+console.log("before seleting duplicates", arr1);
+for (let i = 0; i < arr1.length; i++) {
+    for (let j = i + 1; j < arr1.length; j++) {
+        if (arr1[i] == arr1[j]) {
+            arr1.splice(j, 1);
+        }
+    }
+}
+console.log("after seleting duplicates", arr1);
+// 15. Write a ts program to merge two array to third array.
+let arr2 = [1, 2, 3, 4, 5, 6];
+let arr3 = [7, 8, 9, 10, 11, 12];
+let arr4 = [];
+for (let i = 0; i < arr2.length; i++) {
+    arr4.push(arr2[i]);
+}
+for (let j = 0; j < arr3.length; j++) {
+    arr4.push(arr3[j]);
+}
+console.log("merged Arrays:", arr4);
+// 16. Write a ts program to find reverse of an array.
+var reverse = [`suzuki`, `changan`, `toyota`];
+console.log(`Original Array:`, reverse);
+let reversedArray = [];
+for (let i = reverse.length - 1; i >= 0; i--) {
+    reversedArray.push(reverse[i]);
+}
+console.log(`Reversed Array:`, reversedArray);
+// 17. Write a ts program to put even and odd elements of array in two separate array.
+let nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let evenArr = [];
+let oddArr = [];
+for (let i = 0; i < nums.length; i++) {
+    const element = nums[i];
+    if (element % 2 === 0) {
+        evenArr.push(element);
+    }
+    else {
+        oddArr.push(element);
+    }
+}
+console.log(`Even Array:`, evenArr);
+console.log(`Odd Array:`, oddArr);
+// 18. Write a ts program to search an element in an array.
+let search = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 9, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
+let elemToSearch = 9;
+let indexOfSearchedElem = [];
+for (let i = 0; i < search.length; i++) {
+    if (search[i] === elemToSearch) {
+        indexOfSearchedElem.push(i);
+    }
+}
+if (indexOfSearchedElem.length > 0) {
+    console.log(`Index/indices of the searched element:`, indexOfSearchedElem);
+}
+else {
+    console.log(`Element not found`);
+}
+// 19. Write a ts program to sort array elements in ascending or descending order.
+let sorting = [3, 5, 2, 4, 53, 5, 7, 6];
+let sortedInAsc = [...sorting];
+let sortedInDes = [...sorting];
+console.log("Original Array:", sorting);
+// Bubble sort for ascending order
+for (let i = 0; i < sortedInAsc.length - 1; i++) {
+    for (let j = 0; j < sortedInAsc.length - 1 - i; j++) {
+        if (sortedInAsc[j] > sortedInAsc[j + 1]) {
+            let temp = sortedInAsc[j];
+            sortedInAsc[j] = sortedInAsc[j + 1];
+            sortedInAsc[j + 1] = temp;
+        }
+    }
+}
+// Bubble sort for descending order
+for (let i = 0; i < sortedInDes.length - 1; i++) {
+    for (let j = 0; j < sortedInDes.length - 1 - i; j++) {
+        if (sortedInDes[j] < sortedInDes[j + 1]) {
+            let temp = sortedInDes[j];
+            sortedInDes[j] = sortedInDes[j + 1];
+            sortedInDes[j + 1] = temp;
+        }
+    }
+}
+console.log("Sorted in ascending order:", sortedInAsc);
+console.log("Sorted in descending order:", sortedInDes);
+// 20. Write a ts program to sort even and odd elements of array separately.
+var odd = [1, 13, 7, 5, 9, 17];
+var even = [2, 16, 74, 58, 96, 170];
+console.log(`Original odd array ${odd}`);
+console.log(`This is an sorted odd array: ${odd.sort(function (a, b) {
+    return a - b;
+})}`);
+console.log(`Original even array [${even}]`);
+console.log(`This is an sorted even array: [${even.sort(function (a, b) {
+    return a - b;
+})}]`);
 // 21. Write a ts program to left rotate an array.
-// Assuming you have an object like this
-var myObject = {
-    key1: "value1",
-    key2: "value2",
-    key3: "value3",
-    key4: "value",
-};
-// Get an array of keys from the object
-var keys = Object.keys(myObject);
-// Get the length of the array, which is the number of key-value pairs in the object
-var numberOfKeyPairs = keys.length;
-console.log(numberOfKeyPairs); // This will output the number of key-value pairs in the object
+let rotate = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
+let indicesToRotate = 2;
+console.log(`Original Array:`, rotate);
+for (let i = 0; i < indicesToRotate; i++) {
+    let temp = rotate[0];
+    for (let j = 0; j < rotate.length - 1; j++) {
+        rotate[j] = rotate[j + 1];
+    }
+    rotate[rotate.length - 1] = temp;
+}
+console.log(`Rotated Array:`, rotate);
+// 22. Write a ts program to right rotate an array.
+let rotate2 = [
+    -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16, -17,
+    -18, -19, -20,
+];
+let indicesToRotate2 = 2;
+console.log(`Original Array:`, rotate2);
+for (let i = 0; i < indicesToRotate2; i++) {
+    let temp = rotate2[rotate2.length - 1];
+    for (let j = rotate2.length - 1; j > 0; j--) {
+        rotate2[j] = rotate2[j - 1];
+    }
+    rotate2[0] = temp;
+}
+console.log(`Rotated right Array:`, rotate2);
